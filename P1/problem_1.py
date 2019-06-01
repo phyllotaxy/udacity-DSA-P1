@@ -21,7 +21,7 @@ class LRU_Cache():
 
     def set(self, key, value):
         # If the key is not yet in the hash map and the hash map is already full,
-        # pop out the right-most item, as that one is the least recently used.
+        # pop out the first item, as that one is the least recently used.
         if self._ord_hmap.get(key, -1) == -1 and len(self._ord_hmap) >= self._ord_hmap_cap:
             self._ord_hmap.popitem(last=False)
         # Insert the key/value pair.
