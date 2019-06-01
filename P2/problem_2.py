@@ -25,8 +25,10 @@ def walk(path_list, suffix, path):
     if isdir(path):
         for sub_path in listdir(path=path):
             joined_path = join(path, sub_path)
+            # base case
             if isfile(joined_path) and sub_path.endswith(suffix):
                 path_list.append(joined_path)
+            # induction step
             elif isdir(joined_path):
                 walk(path_list, suffix, joined_path)
 
