@@ -1,4 +1,5 @@
 class Node:
+
     def __init__(self, value):
         self.value = value
         self.next = None
@@ -6,8 +7,8 @@ class Node:
     def __repr__(self):
         return str(self.value)
 
-
 class LinkedList:
+
     def __init__(self):
         self.head = None
 
@@ -19,17 +20,13 @@ class LinkedList:
             cur_head = cur_head.next
         return out_string
 
-
     def append(self, value):
-
         if self.head is None:
             self.head = Node(value)
             return
-
         node = self.head
         while node.next:
             node = node.next
-
         node.next = Node(value)
 
     def size(self):
@@ -38,9 +35,9 @@ class LinkedList:
         while node:
             size += 1
             node = node.next
-
         return size
 
+# Implementation starts here.
 def union(llist_1, llist_2):
     elems_1 = collect_elems(llist_1)
     elems_2 = collect_elems(llist_2)
@@ -95,7 +92,7 @@ def tc_2():
     print (intersection(linked_list_1,linked_list_2))
     # prints empty string
 
-# test case 1 given from assignment
+# test case 1 provided by the assignment
 def tc_3():
     linked_list_1 = LinkedList()
     linked_list_2 = LinkedList()
@@ -108,7 +105,7 @@ def tc_3():
     print (union(linked_list_1,linked_list_2))
     print (intersection(linked_list_1,linked_list_2))
 
-# test case 2 given from assignment
+# test case 2 provided by the assignment
 def tc_4():
     linked_list_3 = LinkedList()
     linked_list_4 = LinkedList()

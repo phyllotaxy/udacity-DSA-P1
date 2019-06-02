@@ -4,28 +4,28 @@ class LRU_Cache():
 
     def __init__(self, capacity):
         # Initialize class variables.
-        self._ord_hmap = OrderedDict()
+        self.ord_hmap = OrderedDict()
         # For the current problem, capacity is expected to be 5.
-        self._ord_hmap_cap = capacity
+        self.ord_hmap_cap = capacity
 
     def get(self, key):
         # In case of a cache miss, get() should return -1.
-        res = self._ord_hmap.get(key, -1)
+        res = self.ord_hmap.get(key, -1)
         # If a cache hit happens, this counts as a most recent use. In this case,
         # we delete that entry from the hash map and add it again, so that the
         # least-recently-used order is preserved.
         if res != -1:
-            value = self._ord_hmap.pop(key)
-            self._ord_hmap[key] = value
+            value = self.ord_hmap.pop(key)
+            self.ord_hmap[key] = value
         return res
 
     def set(self, key, value):
         # If the key is not yet in the hash map and the hash map is already full,
         # pop out the first item, as that one is the least recently used.
-        if self._ord_hmap.get(key, -1) == -1 and len(self._ord_hmap) >= self._ord_hmap_cap:
-            self._ord_hmap.popitem(last=False)
+        if self.ord_hmap.get(key, -1) == -1 and len(self.ord_hmap) >= self.ord_hmap_cap:
+            self.ord_hmap.popitem(last=False)
         # Insert the key/value pair.
-        self._ord_hmap[key] = value
+        self.ord_hmap[key] = value
 
 def main():
     tc_1()
