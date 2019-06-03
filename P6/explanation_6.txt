@@ -1,0 +1,15 @@
+Reasoning:
+As union and intersection are set operations, we need to use sets to collect the
+elements of the linked lists.
+
+Time complexity:
+Assume the sizes of the inputs of list_1 and list_2 are m and n, respectively.
+- Generation the corresponding sets takes O(n + m).
+- Intersection is in O(n) or O(m), depending on which list is chosen to perform the
+check.
+- Union is in O(n + m). First, one of the sets need to be copied to a new set(unlike
+intersection, where only an empty set needs to be created). Then we need to perform
+the check on the other set, which makes the complexity in O(n + m).
+
+Space Complexity:
+- All are the same as time complexity.
