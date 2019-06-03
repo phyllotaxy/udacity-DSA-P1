@@ -11,7 +11,7 @@ def find_files(suffix, path):
     There are no limit to the depth of the subdirectories can be.
 
     Args:
-      suffix(str): suffix if the file name to be found
+      suffix(str): suffix of the file name to be found
       path(str): path of the file system
 
     Returns:
@@ -22,13 +22,27 @@ def find_files(suffix, path):
     return all_paths
 
 def walk(path_list, suffix, path):
+    """
+    Put the paths of all files with given suffix beneath path into a list.
+
+    Args:
+      suffix(str): suffix of the file name to be found
+      path(str): path under which files with the given suffix should be searched
+      path_list(list): list that contains all the files with given suffix that have been seen so far
+
+    Returns:
+       Nothing.
+    """
     if isdir(path):
         for sub_path in listdir(path=path):
+            # Join path with all the paths in the subdirectories
             joined_path = join(path, sub_path)
             # base case
+            # if path is a file, check suffix
             if isfile(joined_path) and sub_path.endswith(suffix):
                 path_list.append(joined_path)
             # induction step
+            # If path is again a directory, call function recursively.
             elif isdir(joined_path):
                 walk(path_list, suffix, joined_path)
 
@@ -40,7 +54,7 @@ def main():
 
 # tests
 
-# invalid filename
+# path not existent
 def tc_1():
     all_paths = find_files('.c', 'a*7dfs25&jn')
     for path in all_paths:

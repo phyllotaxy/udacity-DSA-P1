@@ -1,0 +1,23 @@
+Reasoning:
+As the directory structure can be seen as a tree data structure, traversal should
+be done using recursion.
+
+Time Complexity:
+Since the input is only a path and a suffix, we need to make some assumptions to
+analyze the complexity.
+1. If the input is seen as the total number of files and directories under the given
+path, assume which to be n, then the complexity is O(n), as each file/directory is
+processed only once.
+2. If the input seen as the max. level of the directory and the max. number of direct
+subpaths(directory or file) under any directory, assume which to be n and m respectively,
+we have the following recurrence in the worst case (c is a constant):
+T(1, m) = cm
+T(n, m) = m*T(n-1) + cm
+If we solve this recurrence, we have T(n, m) = cm + cm^2 + cm^3 + ... + cm^n = cm(m^n - 1)/(m - 1),
+which is in O(m^n).
+With this, we know that when both m and n increase linearly, the complexity is
+O(n^n). If m is fixed and only n increases linearly, the complexity is O(m^n),
+i.e., exponential.
+
+Space Complexity:
+Maybe the max. level of the directory?
