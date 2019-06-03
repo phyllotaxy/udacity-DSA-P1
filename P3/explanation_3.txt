@@ -1,0 +1,27 @@
+Reasoning:
+The most natural way to represent characters and their corresponding frequencies
+is using a dictionary. The Huffman tree is of course represented using a binary tree.
+The set of encodings for all characters is best represented by a dictionary.
+
+Time Complexity:
+- The construction of the char/frequency dictionary is O(n).
+- Generating a sorted list from the dictionary takes O(nlogn). (complexity of Timsort)
+- Every time two items in the list is popped out and then combined into a node, we need
+to insert this node again into the right position of the list according to the
+node's value. We keep on doing this until the list has one element, which is the
+root of the Huffman tree. This takes O(n^2).
+- Then we need to traverse the Huffman tree. As the Huffman tree has n leaves, one
+for each character, the total number of nodes in the Huffman tree is in O(n), which
+means that the traversal is also in O(n).
+- Generating the encoded data takes O(n).
+- Decoding of the encoded data requires us to get from the root to the leaf of
+the Huffman tree for every character. Because the total number of nodes in the
+Huffman tree is in O(n), the distance we need to travel to get to each leaf is
+in O(logn). Doing that for every character, the complexity is in O(nlogn).
+To summarize, the overall complexity of the algorithm is:
+O(n + nlogn + n^2 + n + n + nlogn)
+which is O(n^2).
+
+Space Complexity:
+Both the dictionaries and the Huffman tree are in O(n), which means the overall
+complexity is in O(n).
