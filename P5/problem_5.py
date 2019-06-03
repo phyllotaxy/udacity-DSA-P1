@@ -66,6 +66,7 @@ def main():
     # No empty case, as the block chain constructor requires a block as argument
     tc_1()
     tc_2()
+    tc_3()
 
 # block chain with 1 block
 def tc_1():
@@ -79,6 +80,20 @@ def tc_2():
     block_chain.add_block(Block('This is the 3rd block.'))
     block_chain.add_block(Block('This is the 4th block.'))
     block_chain.add_block(Block('This is the 5th block.'))
+    block_chain.print_blockchain()
+
+# block chain with 10 blocks
+def tc_3():
+    block_chain = BlockChain(Block('This is the 1st block.'))
+    block_chain.add_block(Block('This is the 2nd block.'))
+    block_chain.add_block(Block('This is the 3rd block.'))
+    block_chain.add_block(Block('This is the 4th block.'))
+    block_chain.add_block(Block('This is the 5th block.'))
+    block_chain.add_block(Block('This is the 6th block.'))
+    block_chain.add_block(Block('This is the 7th block.'))
+    block_chain.add_block(Block('This is the 8th block.'))
+    block_chain.add_block(Block('This is the 9th block.'))
+    block_chain.add_block(Block('This is the 10th block.'))
     block_chain.print_blockchain()
 
 if __name__ == "__main__":
