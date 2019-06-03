@@ -21,7 +21,6 @@ class Block:
         return sha.hexdigest()
 
     def serialize(self):
-
         return json.dumps(str(vars(self)))
 
     def set_hash(self, hash):
@@ -34,7 +33,7 @@ class BlockChain:
 
     def __init__(self, block):
         self.tail = block
-        # compute the hash right away, since there is no previous block
+        # Compute the hash right away, since there is no previous block.
         block.set_hash(block.calc_hash())
 
     def get_tail(self):

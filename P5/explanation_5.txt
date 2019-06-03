@@ -1,0 +1,14 @@
+Reasoning:
+The block chain should be implemented using a linked list. The datetime module
+is used to generate GMT(UTC) time, the hashlib module is used to compute the hash,
+and the json module is used to serialize each instance of the Block class.
+The hash of a block is not computed when it is created (except for the first block),
+as it requires the information of the previous block. It can only be computed
+after the block chain object adds the block to the block chain.
+
+Time Complexity:
+-Adding a block to the block chain takes O(1).
+-Printing the block chain takes O(n).
+
+Space Complexity:
+The size of the block chain is in O(n).

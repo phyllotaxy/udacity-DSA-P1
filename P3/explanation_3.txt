@@ -23,5 +23,5 @@ O(n + nlogn + n^2 + n + n + nlogn)
 which is O(n^2).
 
 Space Complexity:
-Both the dictionaries and the Huffman tree are in O(n), which means the overall
-complexity is in O(n).
+Both the dictionary items and the Huffman tree nodes are in O(n), which means
+the overall complexity is in O(n).
