@@ -1,0 +1,22 @@
+Reasoning:
+Since it is required that all operations take O(1) time, we have to use a dictionary,
+as it is the only data structure that allows constant-time look-ups. However, there
+is also some kind of element order that we need to keep track of, so that we could
+remove the least-recently used element efficiently. This is not so easy, as dictionaries
+are not ordered. The only solution I could come up with is to first put every key/value
+pair into the data field of a node. When adding a node to the dictionary, we also
+append this node to the tail of the linked list. When deleting a node, we remove it
+from the dictionary, and also delete it from the linked list. The head of the linked
+list is then the least recently used item, which we can access in O(1) time. Whenever
+there is a cache hit, we remove this key/value pair only from the linked list, and
+then append it to the end of the linked list. As all these operations take O(1) time,
+the requirement of the task is met. As there is already a data structure in Python
+that is able to do this, namely an ordered dictionary, I used this in the implementation.
+
+Time Complexity:
+get operation: O(1)
+set operation: O(1)
+deletion (private): O(1)
+
+Space Complexity:
+O(n), where n is the value of the capacity parameter.

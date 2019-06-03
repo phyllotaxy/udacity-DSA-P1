@@ -11,9 +11,9 @@ class LRU_Cache():
     def get(self, key):
         # In case of a cache miss, get() should return -1.
         res = self.ord_hmap.get(key, -1)
-        # If a cache hit happens, this counts as a most recent use. In this case,
-        # we delete that entry from the hash map and add it again, so that the
-        # least-recently-used order is preserved.
+        # A cache hit counts as a most recent use. In this case, we delete that
+        # entry from the hash map and add it again, so that the least-recently-used
+        # order is preserved.
         if res != -1:
             value = self.ord_hmap.pop(key)
             self.ord_hmap[key] = value
