@@ -1,0 +1,5 @@
+Reasoning:
+The reasoning is similar to problem 2.
+
+Time and Space Complexity:
+The analysis is similar to problem 2.
